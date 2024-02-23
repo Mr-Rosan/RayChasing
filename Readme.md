@@ -1,4 +1,4 @@
-服务于本科教学的三维渲染系统
+的三维渲染系统
 ---
 
 # 环境配置
@@ -128,15 +128,6 @@ $$
   - $F_r(w_r)$为菲涅尔项
 
 ![](./doc/image/rdm_11.png)
-
-## Path Tracing 绝缘体材质(代码未提供，需要自己实现)
-绝缘体，例如玻璃
-
-
-![](./doc/image/rdm_12.png)
-
-
-## Path Tracing 实现Enviroment Map 光源
 
 ![](./doc/image/rdm_13.png)
 
