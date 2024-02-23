@@ -1,0 +1,34 @@
+#pragma once
+#ifndef __HIT_RECORD_HPP__
+#define __HIT_RECORD_HPP__
+
+#include <optional>
+
+#include "geometry/vec.hpp"
+
+namespace RayTracer {
+using namespace NRenderer;
+using namespace std;
+struct HitRecordBase {
+    float t;
+    Vec3 hitPoint;
+    Vec3 normal;
+    Handle material;
+    float pdf;
+    Vec3 radiance;
+};
+using HitRecord = optional<HitRecordBase>;
+inline HitRecord getMissRecord() {
+    return nullopt;
+}
+
+inline HitRecord getHitRecord(float t, const Vec3& hitPoint, const Vec3& normal, Handle material) {
+    return make_optional<HitRecordBase>(t, hitPoint, normal, material);
+}
+
+inline HitRecord getHitRecord(float t, const Vec3& hitPoint, const Vec3& normal, float pdf, const Vec3& radiance, Handle material) {
+    return make_optional<HitRecordBase>(t, hitPoint, normal, material, pdf, radiance);
+}
+}  // namespace PathTracer
+
+#endif
